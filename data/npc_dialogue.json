@@ -1,0 +1,20 @@
+{
+  "npcs": [
+    {
+      "id": "mentor_delta",
+      "region": "prologue",
+      "lines": [
+        "Welcome to the Chamber of Flow.",
+        "Trace the currents and remember: every step is data."
+      ]
+    },
+    {
+      "id": "farmer_lambda",
+      "region": "array_plains",
+      "lines": [
+        "These plots are out of order!",
+        "Can you sort them before the Sentinel notices?"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "puzzles": [
+    {
+      "id": "P0-1",
+      "name": "Follow The Path",
+      "region": "prologue",
+      "scene": "res://puzzles/prologue/Puzzle_P0_1_FollowThePath.tscn"
+    },
+    {
+      "id": "AP-1",
+      "name": "Fix The Farmland",
+      "region": "array_plains",
+      "scene": "res://puzzles/array_plains/Puzzle_AP1_FixTheFarmland.tscn"
+    },
+    {
+      "id": "AP-2",
+      "name": "Find The Lost Tool",
+      "region": "array_plains",
+      "scene": "res://puzzles/array_plains/Puzzle_AP2_FindTheLostTool.tscn"
+    }
+  ]
+}

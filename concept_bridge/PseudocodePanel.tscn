@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://concept_bridge/PseudocodePanel.gd" type="Script" id="1"]
+
+[node name="PseudocodePanel" type="Control"]
+script = ExtResource("1")
+; Displays algorithm pseudocode via RichTextLabel in the future.

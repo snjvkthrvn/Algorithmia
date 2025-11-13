@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://scripts/WorldRoot.gd" type="Script" id="1"]
+
+[node name="WorldRoot" type="Node"]
+script = ExtResource("1")
+metadata/description = "Bootstraps the overworld, region scenes, and shared UI."
+
+[node name="RegionRoot" type="Node2D" parent="WorldRoot"]
+; RegionLoader instantiates biomes under this node.
+
+[node name="UIRoot" type="CanvasLayer" parent="WorldRoot"]
+; MainHUD and DialogueBox are injected here at runtime.

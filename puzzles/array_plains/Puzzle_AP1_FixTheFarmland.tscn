@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://puzzles/array_plains/Puzzle_AP1_FixTheFarmland.gd" type="Script" id="1"]
+
+[node name="Puzzle_AP1_FixTheFarmland" type="Node2D"]
+script = ExtResource("1")
+; Arrange farmland plots to highlight sorting algorithms.

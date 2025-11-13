@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://puzzles/twin_rivers/Puzzle_TR4_BreakingTheCurrents.gd" type="Script" id="1"]
+
+[node name="Puzzle_TR4_BreakingTheCurrents" type="Node2D"]
+script = ExtResource("1")
+metadata/description = "Endgame window forces players to shatter alternating river currents."

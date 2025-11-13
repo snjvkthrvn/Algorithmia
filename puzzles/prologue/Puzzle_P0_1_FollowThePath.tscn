@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://puzzles/prologue/Puzzle_P0_1_FollowThePath.gd" type="Script" id="1"]
+
+[node name="Puzzle_P0_1_FollowThePath" type="Node2D"]
+script = ExtResource("1")
+; Lay out tutorial nodes for tracing the chamber paths.

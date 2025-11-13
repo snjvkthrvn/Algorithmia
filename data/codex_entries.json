@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "id": "array_basics",
+      "title": "Array Fundamentals",
+      "summary": "Review zero-indexing, traversal, and basic pathing before entering Array Plains.",
+      "tags": ["arrays", "iteration"],
+      "unlocked_in": "prologue"
+    },
+    {
+      "id": "two_sum",
+      "title": "Two Sum Pattern",
+      "summary": "Use hash tables to find complements in linear time.",
+      "tags": ["hashing", "two sum"],
+      "unlocked_in": "array_plains"
+    }
+  ]
+}

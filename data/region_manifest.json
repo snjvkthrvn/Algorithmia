@@ -1,0 +1,22 @@
+{
+  "regions": [
+    {
+      "id": "prologue",
+      "name": "Chamber of Flow",
+      "scene": "res://regions/prologue/RegionPrologue.tscn",
+      "boss": "sentinel"
+    },
+    {
+      "id": "array_plains",
+      "name": "Array Plains",
+      "scene": "res://regions/array_plains/RegionArrayPlains.tscn",
+      "boss": "shuffler"
+    },
+    {
+      "id": "twin_rivers",
+      "name": "Twin Rivers",
+      "scene": "res://regions/twin_rivers/RegionTwinRivers.tscn",
+      "boss": "mirror_serpent"
+    }
+  ]
+}

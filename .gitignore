@@ -1,0 +1,13 @@
+# Godot
+.import/
+export_presets.cfg
+*.import
+*.godot.tmp
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

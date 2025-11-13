@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://puzzles/array_plains/Puzzle_AP4_ThePairingGrounds.gd" type="Script" id="1"]
+
+[node name="Puzzle_AP4_ThePairingGrounds" type="Node2D"]
+script = ExtResource("1")
+metadata/description = "Highlights Two Sum logic across pairing pads."

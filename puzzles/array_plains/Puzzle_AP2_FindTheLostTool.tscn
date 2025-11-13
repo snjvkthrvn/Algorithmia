@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://puzzles/array_plains/Puzzle_AP2_FindTheLostTool.gd" type="Script" id="1"]
+
+[node name="Puzzle_AP2_FindTheLostTool" type="Node2D"]
+script = ExtResource("1")
+; Demonstrates hash map lookups using scattered farm tools.

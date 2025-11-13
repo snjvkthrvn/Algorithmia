@@ -1,0 +1,7 @@
+{
+  "id": "template_id",
+  "title": "Display Title",
+  "summary": "What the player learns.",
+  "tags": ["algorithms"],
+  "unlocked_in": "region_id"
+}
