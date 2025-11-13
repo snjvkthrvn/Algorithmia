@@ -1,0 +1,246 @@
+SECTION 1: GETTING THE CODE
+
+1. Install Git on your computer if you do not have it already.
+   You can download Git from https://git-scm.com/downloads
+
+2. Open a terminal or command prompt on your computer.
+
+3. Navigate to the folder where you want to save the project.
+   For example, you might type: cd Documents
+
+4. Clone the repository from GitHub by running this command:
+   git clone <repository-url> Algorithmia
+   Replace <repository-url> with the actual GitHub URL for this project.
+
+5. After the clone finishes, navigate into the project folder:
+   cd Algorithmia
+
+6. You should now see files like project.godot, README.md, and folders like scenes, regions, puzzles, singletons, and ui.
+
+SECTION 2: INSTALLING GODOT
+
+1. Download Godot 4.2 from the official website: https://godotengine.org/download
+
+2. Make sure you get version 4.2 or 4.2.x to match this project.
+
+3. Extract or install Godot on your computer.
+
+4. Launch the Godot application.
+
+5. When Godot opens, you will see the Project Manager window.
+
+6. Click the Import button or Scan button in the Project Manager.
+
+7. Navigate to the Algorithmia folder you cloned earlier.
+
+8. Select the project.godot file and click Open or Import.
+
+9. Godot will now load your project and you should see it in the project list.
+
+SECTION 3: SETTING UP THE MAIN SCENE
+
+1. The main scene should already be set to scenes/WorldRoot.tscn in the project settings.
+
+2. To verify this, go to Project in the top menu, then select Project Settings.
+
+3. In the Project Settings window, click on Application in the left sidebar.
+
+4. Click on Run in the Application section.
+
+5. Look at the Main Scene field. It should say: res://scenes/WorldRoot.tscn
+
+6. If it is empty or shows a different path, click the folder icon next to Main Scene.
+
+7. Navigate to scenes/WorldRoot.tscn and select it.
+
+8. Click Close to save the settings.
+
+SECTION 4: CONFIGURING AUTOLOAD SINGLETONS
+
+1. The project uses several singleton scripts that need to be registered as autoloads.
+
+2. Go to Project in the top menu, then select Project Settings.
+
+3. Click on Autoload in the left sidebar of the Project Settings window.
+
+4. You need to add the following singletons. For each one, follow these steps:
+   a. Click the folder icon in the Path column.
+   b. Navigate to the singletons folder and select the script.
+   c. Make sure the Node Name matches the script name exactly.
+   d. Click the Add button.
+
+5. Add these singletons in this order:
+   - Path: res://singletons/GameState.gd, Node Name: GameState
+   - Path: res://singletons/RegionLoader.gd, Node Name: RegionLoader
+   - Path: res://singletons/PuzzleManager.gd, Node Name: PuzzleManager
+   - Path: res://singletons/CodexManager.gd, Node Name: CodexManager
+   - Path: res://singletons/LogicForgeManager.gd, Node Name: LogicForgeManager
+   - Path: res://singletons/Analytics.gd, Node Name: Analytics
+
+6. Important: PuzzleManager must be added because it is used by puzzle entrance scripts to load puzzle scenes.
+
+7. After adding all singletons, click Close to save the settings.
+
+SECTION 5: RUNNING THE GAME
+
+1. Make sure you have completed all the setup steps above.
+
+2. In the Godot editor, look at the top right corner of the screen.
+
+3. You will see a Play button that looks like a play icon or triangle.
+
+4. Click the Play button to run the game.
+
+5. Godot will start the game and you should see a new window open.
+
+6. The WorldRoot scene should load automatically.
+
+7. The WorldRoot script will then load the Prologue region scene from regions/prologue/RegionPrologue.tscn.
+
+8. You should see the game window with the Prologue region displayed.
+
+9. If you see any errors, check the Output panel at the bottom of the Godot editor for error messages.
+
+SECTION 6: TESTING BASIC PLAYER MOVEMENT
+
+1. When the game runs, you should see a blue square on the screen. This is the Player character.
+
+2. The player can be moved using the keyboard.
+
+3. Use the WASD keys to move:
+   - W key moves the player up
+   - A key moves the player left
+   - S key moves the player down
+   - D key moves the player right
+
+4. You can also use the arrow keys to move:
+   - Up arrow moves up
+   - Left arrow moves left
+   - Down arrow moves down
+   - Right arrow moves right
+
+5. Try moving the player around the screen to confirm movement is working.
+
+6. The player should move smoothly in the direction you press.
+
+7. If the player does not move, check the Output panel for errors related to the Player script or input mapping.
+
+SECTION 7: TESTING REGION LOADING
+
+1. The WorldRoot scene automatically loads the Prologue region when the game starts.
+
+2. The WorldRoot script uses RegionLoader to load regions/prologue/RegionPrologue.tscn.
+
+3. When the game runs, you should see the RegionPrologue scene appear in the game window.
+
+4. The region should contain the Player character and any other elements defined in RegionPrologue.tscn.
+
+5. If the region does not load, check the Godot Output panel for error messages.
+
+6. Common issues:
+   - The RegionLoader singleton might not be registered as an autoload. Go back to Section 4 and add it.
+   - The path to RegionPrologue.tscn might be incorrect. Check that the file exists at regions/prologue/RegionPrologue.tscn.
+
+7. You can verify the region path by opening scripts/WorldRoot.gd and checking the PROLOGUE_REGION_ID constant and how RegionLoader.load_region_scene is called.
+
+SECTION 8: TESTING PUZZLE ENTRY FROM PROLOGUE
+
+1. In the Prologue region, there is a puzzle entrance for puzzle P0_1.
+
+2. The puzzle entrance appears as a yellow square on the screen, positioned to the right of the player's starting position.
+
+3. Move your player character toward the yellow square using WASD or arrow keys.
+
+4. When the player gets close to the yellow square, the puzzle entrance should detect the player.
+
+5. Press the E key to interact with the puzzle entrance.
+
+6. When you press E near the entrance, the game should load the puzzle scene: puzzles/prologue/Puzzle_P0_1_FollowThePath.tscn
+
+7. The game will switch from the region scene to the puzzle scene automatically.
+
+8. If pressing E does nothing, check:
+   - That you are close enough to the yellow entrance square
+   - That the E key is properly mapped in the Input Map (it should be mapped to the "interact" action)
+   - Check the Output panel for any errors from PuzzleEntrance_P0_1.gd or PuzzleManager
+
+9. If the puzzle scene does not load, verify that:
+   - PuzzleManager is registered as an autoload (see Section 4)
+   - The puzzle scene file exists at puzzles/prologue/Puzzle_P0_1_FollowThePath.tscn
+   - Check the Output panel for errors about missing scenes or scripts
+
+SECTION 9: TESTING UI ELEMENTS
+
+1. The WorldRoot scene automatically creates UI elements when the game starts.
+
+2. Two UI elements are loaded: MainHUD and DialogueBox.
+
+3. These UI elements are added to a CanvasLayer so they appear on top of the game world.
+
+4. MainHUD is loaded from ui/MainHUD.tscn.
+
+5. DialogueBox is loaded from ui/DialogueBox.tscn.
+
+6. Currently, both MainHUD and DialogueBox are placeholder implementations.
+
+7. They are loaded into the scene but may not display visible content yet.
+
+8. The MainHUD script is a placeholder that will be replaced with actual UI bindings for health, hints, and Codex prompts later.
+
+9. The DialogueBox script is a placeholder that will be replaced with actual dialogue text display once the DialogueSystem is ready.
+
+10. You should see these UI elements in the scene tree when running the game, but they may appear empty or minimal until they are fully implemented.
+
+SECTION 10: TROUBLESHOOTING
+
+1. Wrong Godot version:
+   - Make sure you are using Godot 4.2 or 4.2.x
+   - This project requires Godot 4.2 specifically
+   - You can check your Godot version in Help -> About in the Godot editor
+
+2. Main scene not set:
+   - If the game does not start, verify the main scene is set to scenes/WorldRoot.tscn
+   - Go to Project -> Project Settings -> Application -> Run -> Main Scene
+   - Set it to res://scenes/WorldRoot.tscn if it is empty
+
+3. Autoloads missing:
+   - If you see errors about PuzzleManager or other singletons not being found, you need to add them as autoloads
+   - Go to Project -> Project Settings -> Autoload
+   - Add all the singletons listed in Section 4
+   - Make sure the Node Name matches exactly (case sensitive)
+
+4. Broken resource paths in scripts:
+   - If Godot cannot load a scene or script, check the file paths in the scripts
+   - Common paths to verify:
+     - scenes/WorldRoot.tscn exists
+     - regions/prologue/RegionPrologue.tscn exists
+     - puzzles/prologue/Puzzle_P0_1_FollowThePath.tscn exists
+     - ui/MainHUD.tscn exists
+     - ui/DialogueBox.tscn exists
+   - All paths in scripts use res:// which means they start from the project root
+
+5. Reading error messages:
+   - Always check the Output panel at the bottom of the Godot editor
+   - Error messages will tell you exactly what file and line number has a problem
+   - Red error text indicates a critical issue that prevents the game from running
+   - Yellow warning text indicates a potential issue that might not stop the game
+
+6. Input not working:
+   - If movement or interaction keys do not work, check the Input Map
+   - Go to Project -> Project Settings -> Input Map
+   - Verify that move_up, move_down, move_left, move_right, and interact actions exist
+   - The interact action should be mapped to the E key
+   - Movement actions should be mapped to WASD and arrow keys
+
+7. Scene tree issues:
+   - If elements do not appear in the game, check the Scene dock in Godot
+   - Make sure all nodes are properly parented
+   - Verify that scripts are attached to the correct nodes
+   - Check that exported variables or scene references are not null
+
+8. Getting help:
+   - Read the README.md file in the project root for more information
+   - Check the docs folder for development guides
+   - Look at the script files themselves for comments explaining their purpose
+   - Check that all required files exist in their expected locations
+
