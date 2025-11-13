@@ -1,7 +1,29 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource path="res://regions/prologue/RegionPrologue.gd" type="Script" id="1"]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://regions/prologue/PuzzleEntrance_P0_1.gd" type="Script" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+extents = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="2"]
+extents = Vector2(16, 16)
 
 [node name="RegionPrologue" type="Node2D"]
 script = ExtResource("1")
 ; Layout maps and NPC spawn points for the Chamber of Flow here.
+
+[node name="Player" parent="RegionPrologue" instance=ExtResource("2")]
+position = Vector2(0, 0)
+
+[node name="PuzzleEntrance_P0_1" type="Area2D" parent="RegionPrologue"]
+script = ExtResource("3")
+position = Vector2(160, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RegionPrologue/PuzzleEntrance_P0_1"]
+shape = SubResource("2")
+
+[node name="EntranceVisual" type="Polygon2D" parent="RegionPrologue/PuzzleEntrance_P0_1"]
+color = Color(0.905882, 0.752941, 0.0509804, 1)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
